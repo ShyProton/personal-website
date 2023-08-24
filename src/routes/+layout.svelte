@@ -9,3 +9,7 @@
 </svelte:head>
 
 <slot />
+
+<style lang="scss">
+  @import "$lib/styles/global";
+</style>
