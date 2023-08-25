@@ -23,8 +23,7 @@
 <div class="spacer" />
 
 <style lang="scss">
-  $nav-height-sm: 80px;
-  $nav-height-md: 50px;
+  $nav-height: 80px;
 
   nav {
     position: fixed;
@@ -35,12 +34,8 @@
 
     top: 0;
     width: 100%;
-    height: $nav-height-sm;
+    height: $nav-height;
     padding: 0 0px;
-
-    @include sm {
-      height: $nav-height-md;
-    }
 
     color: $foreground;
     background-color: scale-color($color: $background, $lightness: -30%);
@@ -48,20 +43,12 @@
     div.title {
       width: 80%;
 
-      @include sm {
-        width: 50%;
-      }
-
       h1 {
         display: flex;
         flex-direction: row;
 
-        font-size: 7vw;
+        font-size: clamp(1em, 7vw, 2em);
         padding-left: 20px;
-
-        @include sm {
-          font-size: 1.5em;
-        }
       }
     }
 
@@ -72,19 +59,11 @@
 
       height: 100%;
 
-      @include sm {
-        width: 50%;
-      }
-
       .nf {
         cursor: pointer;
 
         margin-right: 20px;
-        font-size: 7vw;
-
-        @include sm {
-          display: none;
-        }
+        font-size: clamp(1em, 7vw, 2em);
       }
 
       ul {
@@ -97,8 +76,34 @@
           align-items: center;
         }
       }
+    }
+  }
 
-      @include sm {
+  .spacer {
+    margin-bottom: $nav-height;
+  }
+
+  @include sm {
+    $nav-height: 50px;
+
+    nav {
+      height: $nav-height;
+
+      div.title {
+        width: 50%;
+
+        h1 {
+          font-size: 1.5em;
+        }
+      }
+
+      div.links {
+        width: 50%;
+
+        div.nf {
+          display: none;
+        }
+
         ul {
           display: flex;
           flex-direction: row;
@@ -115,13 +120,9 @@
         }
       }
     }
-  }
 
-  .spacer {
-    margin-bottom: $nav-height-sm;
-
-    @include sm {
-      margin-bottom: $nav-height-md;
+    .spacer {
+      margin-bottom: $nav-height;
     }
   }
 </style>
