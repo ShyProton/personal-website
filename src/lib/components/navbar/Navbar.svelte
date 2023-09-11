@@ -1,3 +1,7 @@
+<script lang="ts">
+  import NavLink from "./NavLink.svelte";
+</script>
+
 <nav>
   <div class="title">
     <h1>
@@ -8,15 +12,9 @@
   <div class="links">
     <div class="nf nf-md-menu" />
     <ul>
-      <li>
-        <a href="#home">Home</a>
-      </li>
-      <li>
-        <a href="#projects">Projects</a>
-      </li>
-      <li>
-        <a href="#experience">Experience</a>
-      </li>
+      <NavLink name="Home" />
+      <NavLink name="Projects" />
+      <NavLink name="Experience" />
     </ul>
   </div>
 </nav>
@@ -69,12 +67,6 @@
       ul {
         display: none;
         list-style-type: none;
-
-        li {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
       }
     }
   }
@@ -110,13 +102,6 @@
           justify-content: space-between;
           width: 100%;
           height: 100%;
-
-          li {
-            height: 100%;
-            width: 100%;
-            max-width: 250px;
-            background-color: scale-color($color: $background, $lightness: 30%);
-          }
         }
       }
     }
