@@ -1,9 +1,9 @@
-<div id="home" />
+<script lang="ts">
+  import Home from "$lib/components/home/Home.svelte";
+</script>
+
+<Home />
 <div id="projects" />
 <div id="experience" />
 
-<style>
-  div {
-    height: 100vw;
-  }
-</style>
+<style></style>
